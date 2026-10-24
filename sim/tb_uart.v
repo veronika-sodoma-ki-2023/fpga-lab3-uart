@@ -61,6 +61,7 @@ module tb_uart;
     // ------------------------------------------------------------------------
     always #(CLK_PERIOD_NS / 2.0) clk = ~clk;
 
+
     // ------------------------------------------------------------------------
     // Тестовані модулі (DUT)
     // ------------------------------------------------------------------------
@@ -96,11 +97,11 @@ module tb_uart;
         if (rx_valid) begin
             rx_count <= rx_count + 1;
             last_rx  <= rx_data;
-            $display("[%0t ns] RX: received byte 0x%02h", $time, rx_data);
+            $display("[%t] RX: received byte 0x%02h", $time, rx_data);
         end
         if (frame_error) begin
             fe_count <= fe_count + 1;
-            $display("[%0t ns] RX: frame error detected", $time);
+            $display("[%t] RX: frame error detected", $time);
         end
     end
 
@@ -119,7 +120,7 @@ module tb_uart;
             @(posedge clk);
             tx_start <= 1'b0;
 
-            $display("[%0t ns] TX: start sending 0x%02h", $time, data);
+            $display("[%t] TX: start sending 0x%02h", $time, data);
             wait (tx_done == 1'b1);     // Кадр передано повністю
             @(posedge clk);
             @(posedge clk);
@@ -161,7 +162,7 @@ module tb_uart;
         integer cnt_before;
         begin
             cnt_before = rx_count;
-            $display("[%0t ns] EXT: external device sends 0x%02h", $time, data);
+            $display("[%t] EXT: external device sends 0x%02h", $time, data);
             ext_send(data, 1'b1);
             checks = checks + 1;
             if (rx_count == cnt_before + 1 && last_rx == data)
@@ -179,8 +180,14 @@ module tb_uart;
     integer fe_before, rx_before;
 
     initial begin
-        $dumpfile("tb_uart.vcd");   // Для GTKWave (Vivado ігнорує)
-        $dumpvars(0, tb_uart);
+        $timeformat(-9, 0, " ns", 10); // Вивід часу %t у наносекундах
+        $dumpfile("tb_uart.vcd");   // Для GTKWave / EPWave
+        // Записуємо лише ключові сигнали (без внутрішніх лічильників),
+        // щоб файл осцилограм був невеликим і EPWave завантажив усю симуляцію
+        $dumpvars(1, rst, use_ext, tx_start, tx_data, tx_line, tx_busy,
+                     tx_done, rx_line, rx_data, rx_valid, frame_error);
+        $dumpvars(1, dut_tx.state, dut_rx.state);
+        $dumpvars(1, clk);
 
         // Скидання
         rst = 1'b1;
@@ -210,7 +217,7 @@ module tb_uart;
         $display("\n===== TEST 3: Invalid stop bit =====");
         fe_before = fe_count;
         rx_before = rx_count;
-        $display("[%0t ns] EXT: frame 0x77 with stop bit = 0", $time);
+        $display("[%t] EXT: frame 0x77 with stop bit = 0", $time);
         ext_send(8'h77, 1'b0);
         checks = checks + 1;
         if (fe_count == fe_before + 1 && rx_count == rx_before)
