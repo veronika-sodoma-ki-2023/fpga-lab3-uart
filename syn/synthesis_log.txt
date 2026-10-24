@@ -1,0 +1,236 @@
+[2026-10-24 09:04:18 UTC] precision -shell -file run.do -fileargs "design.sv" 
+precision: Setting MGC_HOME to /usr/share/precision/Mgc_home ...
+precision: Executing on platform: AlmaLinux release 9.6 (Sage Margay)  -- 5.4.0-216-generic -- x86_64 
+//  Precision RTL Synthesis 64-bit 2024.2.0.4 (Production Release) Wed Aug 14 00:06:06 PDT 2024
+//  
+//             This material contains trade secrets or otherwise confidential
+//             information owned by Siemens Industry Software Inc. or its    
+//             affiliates (collectively, "Siemens"), or its licensors. Access to
+//             and use of this information is strictly limited as set forth    
+//             in the Customer's applicable agreements with Siemens.           
+//  
+//                              Unpublished work. Copyright 2024 Siemens               
+//  
+//  Running on Linux runner@c619b343d1f2 #236-Ubuntu SMP Fri Apr 11 19:53:21 UTC 2025 5.4.0-216-generic x86_64
+//  
+//  Start time Sat Oct 24 05:04:18 2026
+# -------------------------------------------------
+# Info: [9569]: Logging session transcript to file /home/runner/precision.log
+# Info: [9577]: Input directory: /home/runner
+# Info: [9572]: Moving session transcript to file /home/runner/precision.log
+# Info: [9558]: Created project /home/runner/uart_lab.psp in folder /home/runner.
+# Info: [9531]: Created directory: /home/runner/uart_impl.
+# Info: [9531]: Created directory: /home/runner/uart_impl/ui_data.
+# Info: [9557]: Created implementation uart_impl in project /home/runner/uart_lab.psp.
+# Info: [9578]: The Results Directory has been set to: /home/runner/uart_impl/
+# Info: [9569]: Logging project transcript to file /home/runner/uart_impl/precision.log
+# Info: [9569]: Logging suppressed messages transcript to file /home/runner/uart_impl/precision.log.suppressed
+# Info: [9552]: Activated implementation uart_impl in project /home/runner/uart_lab.psp.
+# Info: [15302]: Setting up the design to use synthesis library "xca7.syn"
+# Info: [585]: The global max fanout is currently set to 10000 for Xilinx - ARTIX-7.
+# Info: [15328]: Setting Part to: "7A35TCPG236".
+# Info: [15329]: Setting Process to: "1".
+# Info: [7513]: The default input to Vivado place and route has been set to "Verilog".
+# Info: [7512]: The place and route tool for current technology is Vivado.
+# Info: [3052]: Decompressing file : /usr/share/precision/Mgc_home/pkgs/psr/techlibs/xca7.syn in /home/runner/uart_impl/synlib.
+# Info: [3022]: Reading file: /home/runner/uart_impl/synlib/xca7.syn.
+# Info: [645]: Loading library initialization file /usr/share/precision/Mgc_home/pkgs/psr/userware/xilinx_rename.tcl
+# Info: [40000]: hdl-analyze, Release RTLC-Precision 2024b.6
+# Info: [42003]: Starting analysis of files in library "work"
+# Info: [41002]: Analyzing input file "/home/runner/design.sv" ...
+# Info: [670]: Top module of the design is set to: uart_top.
+# Info: [668]: Current working directory: /home/runner/uart_impl.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2024b.6
+# Info: [40000]: Last compiled on Jul 24 2024 17:10:21
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2024b.6
+# Info: [40000]: Last compiled on Jul 24 2024 17:47:48
+# Info: [44512]: Initializing...
+# Info: [44506]: Module uart_tx{CLK_FREQ=>50000000,BAUD_RATE=>115200}: Pre-processing...
+# Info: [45144]: Extracted FSM in module uart_tx, with state variable = state[2:0], async set/reset state(s) = (none), number of states = 5.
+# Info: [45144]: Re-encoding 5 state FSM as "onehot".
+# Info: [45144]: FSM: State encoding table.
+# Info: [40000]: FSM:	Index	                            Literal	                      Encoding
+# Info: [40000]: FSM:	    0	                                000	                         00001
+# Info: [40000]: FSM:	    1	                                001	                         00010
+# Info: [40000]: FSM:	    2	                                010	                         00100
+# Info: [40000]: FSM:	    3	                                011	                         01000
+# Info: [40000]: FSM:	    4	                                100	                         10000
+# Info: [40000]: The default branch of this FSM is being ignored to allow a more optimal implementation. To preserve it, please specify the attribute safe_fsm_type on the state variable
+# Info: [44506]: Module uart_rx{CLK_FREQ=>50000000,BAUD_RATE=>115200}: Pre-processing...
+# Info: [45144]: Extracted FSM in module uart_rx, with state variable = state[2:0], async set/reset state(s) = (none), number of states = 5.
+# Info: [45144]: Re-encoding 5 state FSM as "onehot".
+# Info: [45144]: FSM: State encoding table.
+# Info: [40000]: FSM:	Index	                            Literal	                      Encoding
+# Info: [40000]: FSM:	    0	                                000	                         00001
+# Info: [40000]: FSM:	    1	                                001	                         00010
+# Info: [40000]: FSM:	    2	                                010	                         00100
+# Info: [40000]: FSM:	    3	                                011	                         01000
+# Info: [40000]: FSM:	    4	                                100	                         10000
+# Info: [40000]: The default branch of this FSM is being ignored to allow a more optimal implementation. To preserve it, please specify the attribute safe_fsm_type on the state variable
+# Info: [44508]: Module uart_tx{CLK_FREQ=>50000000,BAUD_RATE=>115200}: Compiling...
+# Info: [44838]: "/home/runner/design.sv", line 97: Macro Modgen_Counter "counter_up_sclear_clock_clk_en_0_3" inferred for node "bit_idx".
+# Info: [44508]: Module uart_rx{CLK_FREQ=>50000000,BAUD_RATE=>115200}: Compiling...
+# Warning: [45702]: "/home/runner/design.sv", line 172: Initial value for rx_meta is ignored for synthesis. To allow initial value for synthesis, please set the attribute "allow_init_val" in HDL or enable the global support for initial value synthesis through "compile_initial_values" switch.
+# Warning: [45702]: "/home/runner/design.sv", line 173: Initial value for rx_sync is ignored for synthesis. To allow initial value for synthesis, please set the attribute "allow_init_val" in HDL or enable the global support for initial value synthesis through "compile_initial_values" switch.
+# Info: [44838]: "/home/runner/design.sv", line 234: Macro Modgen_Counter "counter_up_sclear_clock_clk_en_0_3" inferred for node "bit_idx".
+# Info: [44523]: Root Module uart_top: Compiling...
+# Info: [44842]: Compilation successfully completed.
+# Info: [44841]: Counter Inferencing === Detected : 4, Inferred (Modgen/Selcounter/AddSub) : 2 (2 / 0 / 0), AcrossDH (Merged/Not-Merged) : (0 / 0), Not-Inferred (Acrossdh/Attempted) : (0 / 0), Local Vars : 2 ===
+# Info: [44856]: Total lines of RTL compiled: 240.
+# Info: [44835]: Total CPU time for compilation: 0.0 secs.
+# Info: [44513]: Overall running time for compilation: 1.0 secs.
+# Info: [668]: Current working directory: /home/runner/uart_impl.
+# Info: [15334]: Doing rtl optimizations.
+# Info: [1078]: Constraints: Precision will generate the constraint: create_clock [get_ports {clk}] -name {clk} -period 20 -waveform {0 10} on port:clk. Reason: setup_design -frequency. Please override the constraint if needed.
+# Info: [1081]: Constraints: Precision will generate the following clock domain information against the clocks. Since the clock domain information is not provided by the user for the below clocks, all clocks are assumed to be synchronous clocks. This will result in all paths between the clock domains to be analyzed for timing. If this behaviour is not intended for any clock domain or path, please override using -domain option or false path constraint. Among these clocks, clock with the smallest period will be chosen as the default domain and the rest of the clock periods specified using multiply-by or divide-by factor.
+# Info: Constraints: Precision Generated Clock Domains:
+# Info: 	Domain Name: clk_PS		Clock Name: clk
+# Info: [671]: Finished compiling design.
+# Info: [668]: Current working directory: /home/runner/uart_impl.
+# Info: [20013]: Precision will use 8 processor(s).
+# Info: [15002]: Optimizing design view:.work.uart_top.INTERFACE
+# Info: [15002]: Optimizing design view:.work.uart_tx_CLK_FREQ_50000000_BAUD_RATE_115200.INTERFACE
+# Info: [15002]: Optimizing design view:.work.uart_rx_CLK_FREQ_50000000_BAUD_RATE_115200.INTERFACE
+# Info: [4558]: 2 Instances are flattened in hierarchical block .work.uart_top.INTERFACE.
+# Info: [15002]: Optimizing design view:.work.uart_top.INTERFACE
+# Info: [8010]: Gated clock transformations: Begin...
+# Info: [8010]: Gated clock transformations: End...
+# Info: [8053]: Added global buffer BUFGP for Port port:clk
+# Info: [1081]: Constraints: Precision will generate the following clock domain information against the clocks. Since the clock domain information is not provided by the user for the below clocks, all clocks are assumed to be synchronous clocks. This will result in all paths between the clock domains to be analyzed for timing. If this behaviour is not intended for any clock domain or path, please override using -domain option or false path constraint. Among these clocks, clock with the smallest period will be chosen as the default domain and the rest of the clock periods specified using multiply-by or divide-by factor.
+# Info: Constraints: Precision Generated Clock Domains:
+# Info: 	Domain Name: clk_PS		Clock Name: clk
+# Info: [3027]: Writing file: /home/runner/uart_impl/uart_top.edf.
+# Info: [3027]: Writing file: /home/runner/uart_impl/uart_top.xdc.
+# Info: -- Writing file /home/runner/uart_impl/uart_top.tcl
+# Info: [3027]: Writing file: /home/runner/uart_impl/uart_top.v.
+# Info: -- Writing file /home/runner/uart_impl/uart_top.tcl
+# Info: [12045]: Starting timing reports generation...
+# Info: [12046]: Timing reports generation done.
+# Info: [12048]: POST-SYNTHESIS TIMING REPORTS ARE ESTIMATES AND SHOULD NOT BE RELIED ON TO MAKE QoR DECISIONS. For accurate timing information, please run place-and-route (P&R) and review P&R generated timing reports.
+# Info: [671]: Finished synthesizing design.
+# Info: [11019]: Total CPU time for synthesis: 2.1 secs.
+# Info: [11020]: Overall running time for synthesis: 8.7 secs.
+# Info: /home/runner/uart_impl/precision_tech.sdc
+# Info: ***************************************************************
+# Info: Device Utilization for 7A35TCPG236
+# Info: ***************************************************************
+# Info: Resource                          Used    Avail   Utilization
+# Info: ---------------------------------------------------------------
+# Info: IOs                               25      106      23.58%
+# Info: Global Buffers                    1       32        3.12%
+# Info: LUTs                              40      20800     0.19%
+# Info: CLB Slices                        9       8150      0.11%
+# Info: Dffs or Latches                   65      41600     0.16%
+# Info: Block RAMs                        0       50        0.00%
+# Info: DSP48E1s                          0       90        0.00%
+# Info: ---------------------------------------------------------------
+# Info: ************************************************************
+# Info: Library: work    Cell: uart_top    View: INTERFACE
+# Info: ************************************************************
+# Info:  Number of ports :                           25
+# Info:  Number of nets :                            52
+# Info:  Number of instances :                       29
+# Info:  Number of references to this view :          0
+# Info: Total accumulated area :
+# Info:  Number of Dffs or Latches :                 65
+# Info:  Number of LUTs :                            40
+# Info:  Number of Primitive LUTs :                  48
+# Info:  Number of LUTs with LUTNM/HLUTNM :          16
+# Info:  Number of MUX CARRYs :                      16
+# Info:  Number of accumulated instances :          178
+# Info: *****************************
+# Info:  IO Register Mapping Report
+# Info: *****************************
+# Info: Design: work.uart_top.INTERFACE
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | Port           | Direction |   INFF   |  OUTFF   |  TRIFF   |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | clk            | Input     |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | rst            | Input     |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | tx_start       | Input     |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | tx_data(7)     | Input     |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | tx_data(6)     | Input     |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | tx_data(5)     | Input     |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | tx_data(4)     | Input     |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | tx_data(3)     | Input     |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | tx_data(2)     | Input     |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | tx_data(1)     | Input     |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | tx_data(0)     | Input     |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | txd            | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | tx_busy        | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | tx_done        | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | rxd            | Input     |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | rx_data(7)     | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | rx_data(6)     | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | rx_data(5)     | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | rx_data(4)     | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | rx_data(3)     | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | rx_data(2)     | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | rx_data(1)     | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | rx_data(0)     | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | rx_valid       | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: | frame_error    | Output    |          |          |          |
+# Info: +----------------+-----------+----------+----------+----------+
+# Info: Total registers mapped: 0
+# Info: -- POST-SYNTHESIS TIMING REPORTS ARE ESTIMATES AND SHOULD NOT BE RELIED ON TO MAKE QoR DECISIONS. For accurate timing information, please run place-and-route (P&R) and review P&R generated timing reports.
+# Info: -- Device: Xilinx - ARTIX-7 : 7A35TCPG236 : 1
+# Info: -- CTE report timing..
+# Info:                   CTE Path Report
+# Info: Critical path #1, (path slack = 17.198):, Logic Levels = 3
+# Info: SOURCE CLOCK: name: clk period: 20.000000
+# Info:      Times are relative to the 1st rising edge
+# Info:   DEST CLOCK: name: clk period: 20.000000
+# Info:      Times are relative to the 2nd rising edge
+# Info: NAME                     GATE      DELAY    ARRIVAL DIR  FANOUT LEVEL
+# Info: u_rx/reg_q(6)/C       FDRE                  0.000   up
+# Info: u_rx/reg_q(6)/Q       FDRE        0.496     0.496   up
+# Info: u_rx/clk_cnt(6)       (net)       0.354                   4     0
+# Info: u_rx/ix29521z2340/I0  LUT4                  0.850   up
+# Info: u_rx/ix29521z2340/O   LUT4        0.124     0.974   dn
+# Info: u_rx/nx29521z5        (net)       0.393                   6     1
+# Info: u_rx/ix29521z58658/I2 LUT6                  1.367   dn
+# Info: u_rx/ix29521z58658/O  LUT6        0.124     1.491   up
+# Info: u_rx/nx29521z3        (net)       0.341                   3     2
+# Info: u_rx/ix54957z1485/I2  LUT3                  1.832   up
+# Info: u_rx/ix54957z1485/O   LUT3        0.124     1.956   dn
+# Info: u_rx/nx54957z1        (net)       0.446                   9     3
+# Info: u_rx/reg_q(0)_1_5/R   FDRE                  2.402   dn
+# Info: 		Initial edge separation:     20.000
+# Info: 		Source clock delay:      -    2.148
+# Info: 		Dest clock delay:        +    2.148
+# Info: 		                        -----------
+# Info: 		Edge separation:             20.000
+# Info: 		Setup constraint:        -    0.400
+# Info: 		                        -----------
+# Info: 		Data required time:          19.600
+# Info: 		Data arrival time:       -    2.402   ( 36.14% cell delay, 63.86% net delay )
+# Info: 		                        -----------
+# Info: 		Slack:                       17.198
+# Info: End CTE Analysis ..... CPU Time Used: 0 sec.
+Done
